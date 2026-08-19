@@ -6,35 +6,20 @@
 
 <script>
 export default {
- name:"app",
- comments: {
-
- },
-}
+ name: "App",
+};
 </script>
 
 <style>
-
-</style>
-<style>
-
 #app {
-  min-width: 100%8;
   min-height: 100vh;
-  /*  width: 100%;
-  height: 100%; */
-  background-color:#344054;
-  background-image: url("@/assets/fon.png");
-  display: flex;
-  justify-content: flex-start;
-  /* padding: 52px 363px 0px 357px; */
-  margin: 0px;
-  flex-direction: column;
-  align-items: center;
+  min-height: 100dvh;
 }
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
 </style>
+
