@@ -3,7 +3,6 @@ import { apiConstants } from "@/utils/constants";
 
 const { TODOS_API_URL } = apiConstants;
 
-
 // READMTODOS_API_URLE: запрос с сервера вернет массив Task
 // const Task = {
 //   "userId": 1,
@@ -11,7 +10,6 @@ const { TODOS_API_URL } = apiConstants;
 //   "title": "delectus aut autem",
 //   "completed": false
 // }
-
 
 /**
  * Запрос всех задач
@@ -22,12 +20,12 @@ export const getTasklist = async () => {
   if (res.status !== 200) {
     const errorMessage = JSON.stringify({
       text: res.statusText,
-      code: res.status
+      code: res.status,
     });
     return new Error(errorMessage);
-  } 
+  }
   return res.data;
-  
+
   // .then((response) => {
   //   if (response.status !== 200){
   //     console.log({
@@ -49,18 +47,20 @@ export const getTasklist = async () => {
  * @returns Task[]
  */
 export const getTaskById = async (taskId) => {
-  return httpClient.get(`${TODOS_API_URL}/${taskId}`).then((response) => {
-    if (response.status !== 200){
-      console.log({
-        status: response.status,
-        text: response.text
-      });
-      return null;
-    }
+  return httpClient
+    .get(`${TODOS_API_URL}/${taskId}`)
+    .then((response) => {
+      if (response.status !== 200) {
+        console.log({
+          status: response.status,
+          text: response.text,
+        });
+        return null;
+      }
 
-    return response.data;
-  }).catch(error => {
-    console.log(error);
-  })
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
-
