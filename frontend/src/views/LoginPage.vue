@@ -74,12 +74,12 @@ export default {
         } else {
           this.loginError =
             "неверно имя пользователя или пароль учетной записи";
-
-          console.log("loginError:", this.loginError);
         }
       } catch (err) {
-        console.log(err);
-        alert("Ошибка при получении пользователей");
+         console.log(err);
+
+         this.loginError =
+            "Не удалось получить данные пользователей. Попробуйте позже.";
       }
     },
   },
