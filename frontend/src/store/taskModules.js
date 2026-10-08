@@ -1,9 +1,21 @@
 import { FiltersConstants } from "../utils/constants";
+const safeParse = (value, fallback) => {
+  if (!value || value === "undefined") {
+    return fallback;
+  }
+
+  try {
+    return JSON.parse(value);
+  } catch (err) {
+    console.log("Ошибка чтения localStorage:", err);
+    return fallback;
+  }
+};
 
 export const taskModules = {
   namespaced: true,
   state: {
-    taskList: JSON.parse(localStorage.getItem("taskList")) || [],
+    taskList: safeParse(localStorage.getItem("taskList"), []),
     //{id: '', text: "", isActive: false, projectId: null,}
     description: "",
     newTaskText: "",
